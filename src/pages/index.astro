@@ -1,12 +1,27 @@
 ---
 import DossierTabs from '../components/DossierTabs.jsx'
 import '../styles/global.css'
+
+const features = [
+  ['01', 'A WORLD IN MOTION', 'Los Santos and Blaine County combine beaches, hills, city blocks, wilderness, and a deep catalogue of things to do.'],
+  ['02', 'ONLINE, ALWAYS EVOLVING', 'GTA Online supports up to 30 players, with co-operative Heists, Stunt Races, Adversary Modes, and social spaces.'],
+  ['03', 'BUILT FOR THE NEW GENERATION', 'Enhanced versions bring faster loading, higher-fidelity visuals, ray-traced effects, 3D audio, and immersive controller feedback.'],
+]
 ---
+
+<head>
+  <title>Grand Theft Auto V | Los Santos Field Notes</title>
+  <meta name="description" content="An unofficial field guide to Grand Theft Auto V, Los Santos, its protagonists, GTA Online, and the enhanced experience." />
+  <meta property="og:title" content="Grand Theft Auto V | Los Santos Field Notes" />
+  <meta property="og:description" content="Explore the world, story, online universe, and enhanced features of Grand Theft Auto V." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ruturaj930.github.io/GTA5/" />
+</head>
 
 <main>
   <nav class="nav-shell">
     <a class="brand" href="#top" aria-label="Los Santos home"><span class="brand-mark">V</span><span>LOS SANTOS<br /><small>FIELD NOTES</small></span></a>
-    <div class="nav-links"><a href="#story">Story</a><a href="#world">World</a><a href="#numbers">Numbers</a></div>
+    <div class="nav-links"><a href="#story">Story</a><a href="#world">World</a><a href="#experience">Experience</a><a href="#numbers">Numbers</a></div>
     <a class="nav-cta" href="#story">Open dossier <span>+</span></a>
   </nav>
 
@@ -21,5 +36,9 @@ import '../styles/global.css'
   <section class="dossier" id="world"><div class="dossier-nav"><div><p class="eyebrow">THE DOSSIER</p><h2>Choose your<br /><em>angle.</em></h2></div><DossierTabs client:load /></div></section>
 
   <section class="numbers" id="numbers"><div class="section-kicker"><span>02</span><span>BY THE NUMBERS</span></div><div class="stat-grid"><div class="stat"><strong>3</strong><span>PLAYABLE PROTAGONISTS</span></div><div class="stat"><strong>69</strong><span>STORY MISSIONS</span></div><div class="stat"><strong>48.7</strong><span>SQ MI OF LOS SANTOS</span></div><div class="stat accent"><strong>&infin;</strong><span>WAYS TO GET LOST</span></div></div></section>
-  <footer><span>LOS SANTOS FIELD NOTES</span><span>AN UNOFFICIAL FAN ARCHIVE / 2026</span><a href="#top">BACK TO TOP ^</a></footer>
+
+  <section class="experience" id="experience"><div class="section-kicker"><span>03</span><span>THE EXPERIENCE</span></div><div class="experience-heading"><p class="eyebrow">MORE THAN A MAP</p><h2>One world.<br /><em>Many ways in.</em></h2></div><div class="feature-list">{features.map(([number, title, copy]) => <article class="feature"><span class="feature-number">{number}</span><div><h3>{title}</h3><p>{copy}</p></div><span class="feature-arrow">-&gt;</span></article>)}</div></section>
+
+  <section class="platforms"><div><p class="eyebrow">AVAILABLE NOW</p><h2>Pick your<br /><em>platform.</em></h2><p class="platform-note">Grand Theft Auto V and GTA Online are available on PlayStation 5, Xbox Series X|S, and PC. Previous-generation editions are also listed by Rockstar Games.</p><a class="text-link" href="https://www.rockstargames.com/gta-v" target="_blank" rel="noreferrer">Official Rockstar page <span>-&gt;</span></a></div><div class="platform-grid"><div><strong>PS5</strong><span>STORY + ONLINE</span></div><div><strong>X|S</strong><span>STORY + ONLINE</span></div><div><strong>PC</strong><span>UPGRADED VERSION</span></div><div><strong>30</strong><span>ONLINE PLAYERS</span></div></div></section>
+  <footer><span>LOS SANTOS FIELD NOTES</span><span>AN UNOFFICIAL FAN ARCHIVE / 2026</span><a href="https://www.rockstargames.com/gta-v" target="_blank" rel="noreferrer">SOURCE: ROCKSTARGAMES.COM</a><a href="#top">BACK TO TOP ^</a></footer>
 </main>
