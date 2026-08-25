@@ -7,6 +7,12 @@ const features = [
   ['02', 'ONLINE, ALWAYS EVOLVING', 'GTA Online supports up to 30 players, with co-operative Heists, Stunt Races, Adversary Modes, and social spaces.'],
   ['03', 'BUILT FOR THE NEW GENERATION', 'Enhanced versions bring faster loading, higher-fidelity visuals, ray-traced effects, 3D audio, and immersive controller feedback.'],
 ]
+
+const modes = [
+  ['story', 'STORY MODE', 'Follow Michael, Franklin, and Trevor through a cinematic series of high-stakes heists.'],
+  ['online', 'GTA ONLINE', 'Build a criminal career with friends in an evolving online universe for up to 30 players.'],
+  ['enhanced', 'ENHANCED EDITION', 'Experience upgraded visuals, faster loading, 3D audio, and responsive controls on supported platforms.'],
+]
 ---
 
 <head>
@@ -22,12 +28,12 @@ const features = [
   <nav class="nav-shell">
     <a class="brand" href="#top" aria-label="Los Santos home"><span class="brand-mark">V</span><span>LOS SANTOS<br /><small>FIELD NOTES</small></span></a>
     <div class="nav-links"><a href="#story">Story</a><a href="#world">World</a><a href="#experience">Experience</a><a href="#numbers">Numbers</a></div>
-    <a class="nav-cta" href="#story">Open dossier <span>+</span></a>
+    <a class="nav-cta" href="#official">Official overview <span>+</span></a>
   </nav>
 
   <section class="hero relative isolate" id="top">
     <div class="hero-grid" /><div class="hero-image" /><div class="hero-shade" />
-    <div class="hero-copy"><p class="eyebrow reveal">ROCKSTAR GAMES / 2013</p><h1 class="reveal reveal-delay">Grand Theft<br /><em>Auto V</em></h1><p class="hero-intro reveal reveal-delay-2">A living archive of Los Santos, its people,<br />and the art of the getaway.</p><a class="scroll-cue reveal reveal-delay-3" href="#story"><span class="scroll-line" /> Scroll to explore</a></div>
+    <div class="hero-copy"><p class="eyebrow reveal">ROCKSTAR GAMES / 2013</p><h1 class="reveal reveal-delay">Grand Theft<br /><em>Auto V</em></h1><p class="hero-intro reveal reveal-delay-2">A living archive of Los Santos, its people,<br />and the art of the getaway.</p><div class="hero-actions reveal reveal-delay-3"><button class="watch-button" id="watch-trailer" type="button"><span>▶</span> Watch trailer</button><a class="scroll-cue" href="#story"><span class="scroll-line" /> Scroll to explore</a></div></div>
     <div class="hero-stamp">LS<br /><strong>05</strong><br /><span>EST. 2013</span></div><div class="hero-meta"><span>34.0522 N</span><span>118.2437 W</span><span>V.01</span></div>
   </section>
 
@@ -39,6 +45,44 @@ const features = [
 
   <section class="experience" id="experience"><div class="section-kicker"><span>03</span><span>THE EXPERIENCE</span></div><div class="experience-heading"><p class="eyebrow">MORE THAN A MAP</p><h2>One world.<br /><em>Many ways in.</em></h2></div><div class="feature-list">{features.map(([number, title, copy]) => <article class="feature"><span class="feature-number">{number}</span><div><h3>{title}</h3><p>{copy}</p></div><span class="feature-arrow">-&gt;</span></article>)}</div></section>
 
-  <section class="platforms"><div><p class="eyebrow">AVAILABLE NOW</p><h2>Pick your<br /><em>platform.</em></h2><p class="platform-note">Grand Theft Auto V and GTA Online are available on PlayStation 5, Xbox Series X|S, and PC. Previous-generation editions are also listed by Rockstar Games.</p><a class="text-link" href="https://www.rockstargames.com/gta-v" target="_blank" rel="noreferrer">Official Rockstar page <span>-&gt;</span></a></div><div class="platform-grid"><div><strong>PS5</strong><span>STORY + ONLINE</span></div><div><strong>X|S</strong><span>STORY + ONLINE</span></div><div><strong>PC</strong><span>UPGRADED VERSION</span></div><div><strong>30</strong><span>ONLINE PLAYERS</span></div></div></section>
+  <section class="mode-switcher"><div class="section-kicker"><span>04</span><span>CHOOSE YOUR MODE</span></div><div class="mode-heading"><p class="eyebrow">THE COMPLETE EXPERIENCE</p><h2 id="mode-title">{modes[0][1]}</h2><p id="mode-copy">{modes[0][2]}</p></div><div class="mode-buttons">{modes.map(([id, title]) => <button class={id === 'story' ? 'mode-button active' : 'mode-button'} data-mode={id} type="button">{title}<span>+</span></button>)}</div></section>
+
+  <section class="career"><div><p class="eyebrow">GTA ONLINE / CAREER BUILDER</p><h2>Start with<br /><em>a plan.</em></h2><p>Choose a path into the city: Biker, Executive, Nightclub Owner, or Gunrunner. Pick the tools, property, vehicles, and weapons that fit your ambition.</p><a class="text-link" href="https://www.rockstargames.com/gta-online" target="_blank" rel="noreferrer">Explore GTA Online <span>-&gt;</span></a></div><div class="career-options"><button class="career-option active" data-career="BIKER" type="button"><strong>01</strong><span>BIKER</span></button><button class="career-option" data-career="EXECUTIVE" type="button"><strong>02</strong><span>EXECUTIVE</span></button><button class="career-option" data-career="NIGHTCLUB" type="button"><strong>03</strong><span>NIGHTCLUB OWNER</span></button><button class="career-option" data-career="GUNRUNNER" type="button"><strong>04</strong><span>GUNRUNNER</span></button><p class="career-status" id="career-status">BIKER / STARTING PATH SELECTED</p></div></section>
+
+  <section class="platforms" id="official"><div><p class="eyebrow">AVAILABLE NOW</p><h2>Pick your<br /><em>platform.</em></h2><p class="platform-note" id="platform-copy">Grand Theft Auto V and GTA Online are available on PlayStation 5, Xbox Series X|S, and PC.</p><div class="platform-picker"><button class="platform-choice active" data-platform="ps5" type="button">PS5</button><button class="platform-choice" data-platform="xbox" type="button">X|S</button><button class="platform-choice" data-platform="pc" type="button">PC</button></div><a class="text-link" href="https://www.rockstargames.com/gta-v" target="_blank" rel="noreferrer">Official Rockstar page <span>-&gt;</span></a></div><div class="platform-grid"><div><strong id="platform-label">PS5</strong><span id="platform-detail">STORY + ONLINE</span></div><div><strong>30</strong><span>ONLINE PLAYERS</span></div><div><strong>3D</strong><span>SPATIAL AUDIO</span></div><div><strong>60</strong><span>FPS PERFORMANCE MODE</span></div></div></section>
+  <section class="newsletter"><div><p class="eyebrow">STAY IN THE LOOP</p><h2>Signals from<br /><em>the city.</em></h2></div><form id="newsletter-form"><label for="email">ROCKSTAR NEWS AND UPDATES</label><div class="email-row"><input id="email" name="email" type="email" placeholder="your@email.com" required /><button type="submit">Subscribe <span>-&gt;</span></button></div><p class="form-status" id="form-status" aria-live="polite"></p></form></section>
+  <dialog class="trailer-dialog" id="trailer-dialog"><button class="dialog-close" id="close-trailer" type="button" aria-label="Close trailer dialog">×</button><p class="eyebrow">OFFICIAL VIDEO</p><h2>Grand Theft<br /><em>Auto V</em></h2><p>Watch the official trailer on Rockstar Games.</p><a class="text-link" href="https://www.rockstargames.com/gta-v" target="_blank" rel="noreferrer">Open Rockstar <span>-&gt;</span></a></dialog>
   <footer><span>LOS SANTOS FIELD NOTES</span><span>AN UNOFFICIAL FAN ARCHIVE / 2026</span><a href="https://www.rockstargames.com/gta-v" target="_blank" rel="noreferrer">SOURCE: ROCKSTARGAMES.COM</a><a href="#top">BACK TO TOP ^</a></footer>
 </main>
+
+<script>
+  const modeData = {
+    story: { title: 'STORY MODE', copy: 'Follow Michael, Franklin, and Trevor through a cinematic series of high-stakes heists.' },
+    online: { title: 'GTA ONLINE', copy: 'Build a criminal career with friends in an evolving online universe for up to 30 players.' },
+    enhanced: { title: 'ENHANCED EDITION', copy: 'Experience upgraded visuals, faster loading, 3D audio, and responsive controls on supported platforms.' },
+  }
+  document.querySelectorAll('[data-mode]').forEach((button) => button.addEventListener('click', () => {
+    document.querySelectorAll('.mode-button').forEach((item) => item.classList.remove('active'))
+    button.classList.add('active')
+    document.querySelector('#mode-title').textContent = modeData[button.dataset.mode].title
+    document.querySelector('#mode-copy').textContent = modeData[button.dataset.mode].copy
+  }))
+  document.querySelectorAll('[data-career]').forEach((button) => button.addEventListener('click', () => {
+    document.querySelectorAll('.career-option').forEach((item) => item.classList.remove('active'))
+    button.classList.add('active')
+    document.querySelector('#career-status').textContent = `${button.dataset.career} / STARTING PATH SELECTED`
+  }))
+  const platformData = { ps5: ['PS5', 'STORY + ONLINE', 'Grand Theft Auto V and GTA Online with enhanced visuals, faster loading, and immersive controls.'], xbox: ['X|S', 'STORY + ONLINE', 'Grand Theft Auto V and GTA Online for Xbox Series X|S with enhanced performance.'], pc: ['PC', 'UPGRADED VERSION', 'The upgraded PC experience includes visual improvements, ray tracing, DLSS, and FSR support.'] }
+  document.querySelectorAll('[data-platform]').forEach((button) => button.addEventListener('click', () => {
+    document.querySelectorAll('.platform-choice').forEach((item) => item.classList.remove('active'))
+    button.classList.add('active')
+    const data = platformData[button.dataset.platform]
+    document.querySelector('#platform-label').textContent = data[0]
+    document.querySelector('#platform-detail').textContent = data[1]
+    document.querySelector('#platform-copy').textContent = data[2]
+  }))
+  const dialog = document.querySelector('#trailer-dialog')
+  document.querySelector('#watch-trailer').addEventListener('click', () => dialog.showModal())
+  document.querySelector('#close-trailer').addEventListener('click', () => dialog.close())
+  document.querySelector('#newsletter-form').addEventListener('submit', (event) => { event.preventDefault(); document.querySelector('#form-status').textContent = 'Thanks. Your signal is registered.'; event.currentTarget.reset() })
+</script>
